@@ -4,12 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+
+    <script type="text/javascript">
+        function validate() {
+            if (document.f.username.value == "" && document.f.password.value == "") {
+                alert("Username and password are required");
+                document.f.username.focus();
+                return false;
+            }
+            if (document.f.username.value == "") {
+                alert("Username is required");
+                document.f.username.focus();
+                return false;
+            }
+            if (document.f.password.value == "") {
+                alert("Password is required");
+                document.f.password.focus();
+                return false;
+            }
+        }
+    </script>
 </head>
 
 <body>
     <h1>Login</h1>
-    <form name='f' action="login" method='POST'>
+    <form name='f' action="login" method='POST' onsubmit="return validate();">
         <table>
             <tr>
                 <td>User:</td>
@@ -24,6 +44,7 @@
             </tr>
         </table>
     </form>
+
 </body>
 
 </html>
